@@ -1,4 +1,5 @@
 import asyncio
+import os
 
 from calculate_rank import (
     get_md_free_overall,
@@ -45,7 +46,9 @@ async def main():
         autosub=AUTOSUB,
         return_all=False,  # warning: turning this to True will write all 10m+ rows to csv
     )
-    df.to_csv(f"{data_source}_{AUTOSUB}.csv", float_format="%.3f")
+    df.to_csv(
+        os.path.join("results", f"{data_source}_{AUTOSUB}.csv", float_format="%.3f")
+    )
 
 
 if __name__ == "__main__":
