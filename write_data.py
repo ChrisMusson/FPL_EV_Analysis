@@ -39,9 +39,9 @@ def write_overall_table(data_source, season, autosub):
     folder = os.path.join("data", season, f"{data_source}_points", autosub)
     gameweeks = [int(x.split(".")[0]) for x in os.listdir(folder) if x[0].isnumeric()]
     gameweeks = sorted(gameweeks)
-    df = get_points(data_source, gameweeks[0])
+    df = get_points(data_source, season, autosub, gameweeks[0])
     for gw in gameweeks[1:]:
-        gw_df = get_points(data_source, gw)
+        gw_df = get_points(data_source, season, autosub, gw)
         df = pd.concat([df, gw_df], axis=1)
     filepath = os.path.join(
         "data", season, f"{data_source}_points", autosub, "overall.parquet.gzip"

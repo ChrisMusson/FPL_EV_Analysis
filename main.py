@@ -33,7 +33,7 @@ async def main():
     # adds new data onto the overall table. Not needed unless new data has been added by the above line
     write_overall_table(data_source, season=SEASON, autosub=AUTOSUB)
 
-    gameweeks = range(1, 11)
+    gameweeks = range(1, 12)
     user_ids = get_league_users(7639)  # bullet wisdom league IDs
 
     df = func_map[
